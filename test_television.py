@@ -24,19 +24,19 @@ def test_power(tv):
 
 #mute method
 def test_mute(tv):
-    tv.power()
+    tv1 = Television()
+    tv1.power()
+    tv1.volume_up()
+    tv1.mute()
+    assert get_tv_details(tv1) == 'Power = True, Channel = 0, Volume = 0'
 
-    tv.mute()
+    tv1.mute()
     assert get_tv_details(
-        tv) == 'Power = True, Channel = 0, Volume = 0'
+        tv1) == 'Power = True, Channel = 0, Volume = 0'
 
-    tv.mute()
-    assert get_tv_details(
-        tv) == 'Power = True, Channel = 0, Volume = 0'
-
-    tv.power()
-    tv.mute()
-    assert get_tv_details(tv) == 'Power = False, Channel = 0, Volume = 0'
+    tv1.power()
+    tv1.mute()
+    assert get_tv_details(tv1) == 'Power = False, Channel = 0, Volume = 0'
 
 
 #channel_up method
